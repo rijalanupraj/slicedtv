@@ -15,11 +15,11 @@ class MovieAPIView(viewsets.ModelViewSet):
 
     def get_permissions(self):
         if self.action == 'list' or self.action == 'retrieve':
-            permission_classes = (permissions.IsAuthenticated,)
-            # permission_classes = (permissions.AllowAny,)# Only for test purpose
+            # permission_classes = (permissions.IsAuthenticated,)
+            permission_classes = (permissions.AllowAny,)# Only for test purpose
         else:
-            permission_classes = (permissions.IsAdminUser,)
-            # permission_classes = (permissions.AllowAny,) # Only For Test Purpose
+            # permission_classes = (permissions.IsAdminUser,)
+            permission_classes = (permissions.AllowAny,) # Only For Test Purpose
         return [permission() for permission in permission_classes]
 
     def list(self, request):
